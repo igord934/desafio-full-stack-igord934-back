@@ -27,8 +27,13 @@ const kontatoResponseSerializer: SchemaOf<iKontatoResponse> = yup
     createdAt: yup.date().required(),
   });
 
+const listKontatoResponseSerializer: SchemaOf<iKontatoResponse[]> = yup.array(
+  kontatoResponseSerializer
+);
+
 export {
   createKontatoSerializer,
   kontatoResponseSerializer,
   updateKontatoSerializer,
+  listKontatoResponseSerializer,
 };
