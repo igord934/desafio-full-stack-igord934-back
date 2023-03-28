@@ -1,0 +1,5 @@
+Starting api:
+1- In the terminal type: "yarn"
+2- Verify .env.exemple
+3- Create .env and insert informations
+4- In the terminal type: "yarn dev"
