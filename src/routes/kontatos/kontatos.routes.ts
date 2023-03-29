@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { createKontatoController } from "../../controllers/kontatos/createKontato.controllers";
+import deleteKontatosController from "../../controllers/kontatos/deleteKontato.controllers";
+import updateKontatosController from "../../controllers/kontatos/updateKontato.controllers";
 import getAllKontatosController from "../../controllers/kontatos/getAllKontato.controllers";
 import ensureAuthMiddleware from "../../middlewares/ensureAuth.middleware";
 import ensureDataIsValidMiddleware from "../../middlewares/ensureDataIsValid.middleware";
@@ -20,11 +22,18 @@ kontatosRoutes.post(
 
 kontatosRoutes.get("", ensureAuthMiddleware, getAllKontatosController);
 kontatosRoutes.get("/:id", ensureUUIDIsValidMiddleware, ensureAuthMiddleware);
-kontatosRoutes.delete("", ensureAuthMiddleware);
+kontatosRoutes.delete(
+  "/:id",
+  ensureAuthMiddleware,
+  ensureUUIDIsValidMiddleware,
+  deleteKontatosController
+);
 kontatosRoutes.patch(
-  "",
+  "/:id",
   ensureDataIsValidMiddleware(updateKontatoSerializer),
-  ensureAuthMiddleware
+  ensureAuthMiddleware,
+  ensureUUIDIsValidMiddleware,
+  updateKontatosController
 );
 
 export default kontatosRoutes;
