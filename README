@@ -2,7 +2,8 @@ Starting api:
 1- In the terminal type: "yarn"
 2- Verify .env.exemple
 3- Create .env and insert informations
-4- In the terminal type: "yarn dev"
+4- In the terminal type: "yarn typeorm migration:run -d src/data-source"
+5- In the terminal type: "yarn dev"
 
 
-Doc: https://github.com/igord934/desafio-full-stack-igord934-back/index.html
+Doc: run index.html of project
